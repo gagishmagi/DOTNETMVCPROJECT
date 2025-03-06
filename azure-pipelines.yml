@@ -23,7 +23,7 @@ steps:
   inputs:
     ConnectionType: 'AzureRM'
     appType: 'webAppLinux'
-    WebAppName: 
+    WebAppName: 'MVCDOTNET'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'DOTNETCORE:8.0'
     StartupCommand: 'dotnet run'
