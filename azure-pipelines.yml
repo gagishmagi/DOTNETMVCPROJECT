@@ -18,7 +18,10 @@ steps:
     command: 'publish'
     publishWebProjects: true
 
-- task: IISWebAppDeploymentOnMachineGroup@0
+- task: AzureRmWebAppDeployment@5
   inputs:
-    WebSiteName: 'MVCDOTNET'
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
+    ConnectionType: 'AzureRM'
+    appType: 'webApp'
+    WebAppName: 'MVCDOTNET'
+    VirtualApplication: 'MVCDOTNET'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
