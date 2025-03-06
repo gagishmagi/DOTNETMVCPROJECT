@@ -18,13 +18,7 @@ steps:
     command: 'publish'
     publishWebProjects: true
 
-- task: AzureRmWebAppDeployment@5
+- task: IISWebAppDeploymentOnMachineGroup@0
   inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Concierge Subscription(a607a8d8-0d10-48d5-9d37-60b626615839)'
-    appType: 'webAppLinux'
-    WebAppName: 'MVCDOTNET'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'DOTNETCORE:8.0'
-    StartupCommand: 'dotnet run'
-    DeploymentTypeLinux: 'oneDeploy'
+    WebSiteName: 'MVCDOTNET'
+    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
