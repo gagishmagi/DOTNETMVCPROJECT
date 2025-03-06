@@ -17,3 +17,14 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+
+
+- task: AzureRmWebAppDeployment@5
+  inputs:
+    ConnectionType: 'AzureRM'
+    appType: 'webAppLinux'
+    WebAppName: 
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE:8.0'
+    StartupCommand: 'dotnet run'
+    DeploymentTypeLinux: 'oneDeploy'
